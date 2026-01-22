@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CVHero } from '@/components/cv-hero';
 import { CVExperience } from '@/components/cv-experience';
 import { CVSkills } from '@/components/cv-skills';
@@ -8,12 +8,18 @@ import { CVProjects } from '@/components/cv-projects';
 import { CVEducation } from '@/components/cv-education';
 import { CVFooter } from '@/components/cv-footer';
 import { ContactModal } from '@/components/contact-modal';
+import { WelcomeScreen } from '@/components/welcome-screen';
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
+
+  if (showWelcome) {
+    return <WelcomeScreen onComplete={() => setShowWelcome(false)} />;
+  }
 
   return (
-    <main className="min-h-screen bg-background text-foreground overflow-hidden">
+    <main className="min-h-screen bg-background text-foreground overflow-hidden animate-fade-in">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-primary/20">
         <div className="container mx-auto px-4 py-4 md:py-6 flex justify-between items-center">
