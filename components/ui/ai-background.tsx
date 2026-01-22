@@ -22,10 +22,10 @@ export function AIBackground() {
         const CONNECTION_DISTANCE = 90; // Max distance to connect
         const ROTATION_SPEED_BASE = 0.002;
 
-        // Aesthetic Colors (Cyberpunk HSL)
-        // We will vary the hue slightly for a rich effect
-        const HUE_BASE = 190; // Cyan/Blue base
-        const HUE_RANGE = 60; // Up to purple/pink
+        // Aesthetic Colors (Professional Tech Blue/Cyan)
+        // Blue is 210-240. Cyan is 180.
+        const HUE_BASE = 210; // Blue base
+        const HUE_RANGE = 30; // Variation
 
         interface Point3D {
             x: number;

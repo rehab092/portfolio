@@ -17,8 +17,8 @@ export function CVHero() {
         <AIBackground />
 
         {/* Overlay Gradients for depth (optional, keeping some subtle ones) */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/10 to-transparent blur-3xl opacity-40 animate-blob" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-pink-500/10 to-transparent blur-3xl opacity-40 animate-blob animation-delay-2000" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-blue-500/10 to-transparent blur-3xl opacity-40 animate-blob" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-indigo-500/10 to-transparent blur-3xl opacity-40 animate-blob animation-delay-2000" />
       </div>
 
       {/* Content */}
@@ -29,9 +29,9 @@ export function CVHero() {
             <div>
               <h1 className="text-6xl md:text-7xl lg:text-8xl font-black mb-2 text-balance tracking-tighter">
                 <span className="text-white">REHAB</span>
-                <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">IMTIAZ</span>
+                <span className="block mt-2 bg-gradient-to-r from-blue-400 via-indigo-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">IMTIAZ</span>
               </h1>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-cyan-400 via-pink-500 to-cyan-400 rounded-full mt-4 animate-pulse-glow" />
+              <div className="h-1.5 w-32 bg-gradient-to-r from-blue-400 via-indigo-500 to-cyan-400 rounded-full mt-4 animate-pulse-glow" />
             </div>
 
             <div className="space-y-4">
@@ -46,10 +46,10 @@ export function CVHero() {
             {/* Contact Info */}
             <div className="space-y-2 pt-4">
               <p className="text-sm text-gray-400">
-                <span className="text-cyan-400 font-semibold">Email:</span> rehabimtiaz092@gmail.com
+                <span className="text-blue-400 font-semibold">Email:</span> rehabimtiaz092@gmail.com
               </p>
               <p className="text-sm text-gray-400">
-                <span className="text-cyan-400 font-semibold">Phone:</span> +92 315 0173624
+                <span className="text-blue-400 font-semibold">Phone:</span> +92 315 0173624
               </p>
             </div>
           </div>
