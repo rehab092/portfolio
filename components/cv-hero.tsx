@@ -1,106 +1,24 @@
 'use client';
 
-import { useMemo } from 'react';
+
 import { StatCard } from './stat-card';
+import { AIBackground } from './ui/ai-background';
 
 // Pre-generate deterministic particle positions to avoid hydration issues
-const generateParticles = () => {
-  const particles = [];
-  const seed = 12345; // Fixed seed for consistency
-  let random = seed;
-  
-  const seededRandom = () => {
-    random = (random * 9301 + 49297) % 233280;
-    return random / 233280;
-  };
-
-  for (let i = 0; i < 20; i++) {
-    particles.push({
-      id: i,
-      left: seededRandom() * 100,
-      top: seededRandom() * 100,
-      delay: i * 0.15,
-      duration: 6 + seededRandom() * 4,
-    });
-  }
-  return particles;
-};
-
 export function CVHero() {
-  const particles = useMemo(() => generateParticles(), []);
-
   return (
     <div className="relative min-h-screen overflow-hidden flex items-center justify-center bg-black">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Enhanced gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-black to-slate-950" />
-        
-        {/* Animated radial gradients */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/20 to-transparent blur-3xl opacity-60 animate-blob" />
-        <div className="absolute top-1/2 right-0 w-96 h-96 rounded-full bg-gradient-to-br from-pink-500/20 to-transparent blur-3xl opacity-60 animate-blob animation-delay-2000" />
-        <div className="absolute bottom-0 left-1/3 w-96 h-96 rounded-full bg-gradient-to-br from-purple-500/20 to-transparent blur-3xl opacity-60 animate-blob animation-delay-4000" />
 
-        {/* Grid pattern overlay */}
-        <svg className="absolute inset-0 w-full h-full opacity-5" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#00d9ff" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+        {/* New AI Background Animation */}
+        <AIBackground />
 
-        {/* Neural network visualization */}
-        <svg className="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <filter id="glow-cyan">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-            <filter id="glow-pink">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-          
-          {/* Animated neural connections */}
-          <line x1="10%" y1="20%" x2="50%" y2="50%" stroke="#00d9ff" strokeWidth="1" opacity="0.4" className="animate-pulse" style={{ animationDuration: '3s' }} />
-          <line x1="50%" y1="50%" x2="80%" y2="30%" stroke="#ff006e" strokeWidth="1" opacity="0.4" className="animate-pulse" style={{ animationDuration: '4s', animationDelay: '0.5s' }} />
-          <line x1="80%" y1="30%" x2="30%" y2="80%" stroke="#00d9ff" strokeWidth="1" opacity="0.4" className="animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '1s' }} />
-          <line x1="30%" y1="80%" x2="70%" y2="70%" stroke="#ff006e" strokeWidth="1" opacity="0.4" className="animate-pulse" style={{ animationDuration: '4s', animationDelay: '1.5s' }} />
-          <line x1="70%" y1="70%" x2="20%" y2="50%" stroke="#00d9ff" strokeWidth="1" opacity="0.4" className="animate-pulse" style={{ animationDuration: '3.5s', animationDelay: '2s' }} />
-          
-          {/* Animated nodes */}
-          <circle cx="10%" cy="20%" r="6" fill="none" stroke="#00d9ff" strokeWidth="2" filter="url(#glow-cyan)" className="animate-ping" style={{ animationDuration: '2s' }} />
-          <circle cx="50%" cy="50%" r="6" fill="none" stroke="#ff006e" strokeWidth="2" filter="url(#glow-pink)" className="animate-ping" style={{ animationDuration: '2.5s', animationDelay: '0.5s' }} />
-          <circle cx="80%" cy="30%" r="6" fill="none" stroke="#00d9ff" strokeWidth="2" filter="url(#glow-cyan)" className="animate-ping" style={{ animationDuration: '2s', animationDelay: '1s' }} />
-          <circle cx="30%" cy="80%" r="6" fill="none" stroke="#ff006e" strokeWidth="2" filter="url(#glow-pink)" className="animate-ping" style={{ animationDuration: '2.5s', animationDelay: '1.5s' }} />
-          <circle cx="70%" cy="70%" r="6" fill="none" stroke="#00d9ff" strokeWidth="2" filter="url(#glow-cyan)" className="animate-ping" style={{ animationDuration: '2s', animationDelay: '2s' }} />
-        </svg>
-        
-        {/* Floating particles */}
-        <div className="absolute inset-0 opacity-40">
-          {particles.map((particle) => (
-            <div
-              key={particle.id}
-              className="absolute w-0.5 h-0.5 rounded-full bg-gradient-to-br from-cyan-400 to-pink-400 animate-float"
-              style={{
-                left: `${particle.left}%`,
-                top: `${particle.top}%`,
-                animationDelay: `${particle.delay}s`,
-                animationDuration: `${particle.duration}s`,
-                boxShadow: '0 0 10px rgba(0, 217, 255, 0.6)',
-              }}
-            />
-          ))}
-        </div>
+        {/* Overlay Gradients for depth (optional, keeping some subtle ones) */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-cyan-500/10 to-transparent blur-3xl opacity-40 animate-blob" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-pink-500/10 to-transparent blur-3xl opacity-40 animate-blob animation-delay-2000" />
       </div>
 
       {/* Content */}
