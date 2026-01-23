@@ -77,10 +77,10 @@ export function WelcomeScreen({ onComplete }: WelcomeScreenProps) {
                 <HolographicPortrait />
             </div>
 
-            {/* Text Overlay */}
-            <div className="z-10 text-center space-y-4 pointer-events-none">
-                <h2 className="text-4xl md:text-6xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-lime-400 drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-                    {text}<span className="animate-pulse text-emerald-400">_</span>
+            {/* Text Overlay - Moved lower and reduced intensity */}
+            <div className="absolute bottom-12 left-0 right-0 z-10 text-center space-y-4 pointer-events-none">
+                <h2 className="text-2xl md:text-4xl font-bold font-mono text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] tracking-widest opacity-90">
+                    {text}<span className="animate-pulse text-emerald-600">_</span>
                 </h2>
             </div>
         </div>

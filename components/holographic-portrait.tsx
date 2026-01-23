@@ -50,29 +50,29 @@ const PerfectParticleShader = {
     void main() {
         if(vBright < 0.1) discard; 
 
-        // --- PALETTE: "Perfect Emerald" ---
-        vec3 deepTeal = vec3(0.0, 0.15, 0.1); 
-        vec3 emerald  = vec3(0.0, 0.9, 0.5); 
-        vec3 cyanHot  = vec3(0.6, 1.0, 0.9); // White/Blue Highlight
+        // --- PALETTE: "Deep Emerald Matrix" (Darker & Richer) ---
+        vec3 deepTeal = vec3(0.0, 0.1, 0.05);  // Darker base
+        vec3 emerald  = vec3(0.0, 0.6, 0.3);   // Less neon green
+        vec3 cyanHot  = vec3(0.2, 0.8, 0.6);   // Muted highlight (not white/bright cyan)
         
         // Base Gradient
-        vec3 color = mix(deepTeal, emerald, vBright);
+        vec3 color = mix(deepTeal, emerald, vBright * 0.8); // Darken the mix
 
-        // Highlight Pulse (The "Living" part)
+        // Highlight Pulse (The "Living" part) - Reduced intensity
         float pulse = sin(uTime * 2.0 + vBright * 15.0);
         if(pulse > 0.8) {
-           color = mix(color, cyanHot, 0.4 * pulse); // Flash bright
+           color = mix(color, cyanHot, 0.3 * pulse); // Less flash
         }
 
         // Rim Light Boost (Edges Glow)
-        color += vRim * 0.1;
+        color += vRim * 0.05; // Reduced rim light
 
         // Circular Soft Point
         vec2 pc = gl_PointCoord - 0.5;
         float dist = length(pc);
         float alpha = 1.0 - smoothstep(0.3, 0.5, dist);
         
-        gl_FragColor = vec4(color, alpha * 0.85); // Slightly higher opacity for richness
+        gl_FragColor = vec4(color, alpha * 0.75); // Lower overall opacity
     }
   `
 };
@@ -84,7 +84,7 @@ function PerfectCloud() {
 
     // Responsive: Fit perfectly
     const isMobile = viewport.width < 5;
-    const scale = isMobile ? 0.6 : 0.8;
+    const scale = isMobile ? 0.45 : 0.6;
 
     const uniforms = useMemo(() => ({
         uTexture: { value: texture },
