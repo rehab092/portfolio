@@ -50,22 +50,22 @@ const PerfectParticleShader = {
     void main() {
         if(vBright < 0.1) discard; 
 
-        // --- PALETTE: "Deep Emerald Matrix" (Darker & Richer) ---
-        vec3 deepTeal = vec3(0.0, 0.1, 0.05);  // Darker base
-        vec3 emerald  = vec3(0.0, 0.6, 0.3);   // Less neon green
-        vec3 cyanHot  = vec3(0.2, 0.8, 0.6);   // Muted highlight (not white/bright cyan)
+        // --- PALETTE: "Deep Cyber Blue" (Matches Portfolio) ---
+        vec3 deepTeal = vec3(0.0, 0.05, 0.2);  // Deep Midnight Blue
+        vec3 emerald  = vec3(0.0, 0.4, 0.9);   // Bright Cyan/Blue
+        vec3 cyanHot  = vec3(0.6, 0.9, 1.0);   // White/Ice Blue
         
         // Base Gradient
         vec3 color = mix(deepTeal, emerald, vBright * 0.8); // Darken the mix
 
-        // Highlight Pulse (The "Living" part) - Reduced intensity
+        // Highlight Pulse (The "Living" part)
         float pulse = sin(uTime * 2.0 + vBright * 15.0);
         if(pulse > 0.8) {
-           color = mix(color, cyanHot, 0.3 * pulse); // Less flash
+           color = mix(color, cyanHot, 0.3 * pulse); // Ice flash
         }
 
         // Rim Light Boost (Edges Glow)
-        color += vRim * 0.05; // Reduced rim light
+        color += vRim * 0.05;
 
         // Circular Soft Point
         vec2 pc = gl_PointCoord - 0.5;
@@ -126,7 +126,7 @@ export function HolographicPortrait() {
                 {/* --- PERFECT AMBIENCE --- */}
                 {/* Deep Field Dust */}
                 <Sparkles
-                    color="#047857"
+                    color="#1e40af"
                     count={200}
                     scale={15}
                     size={4}
@@ -135,7 +135,7 @@ export function HolographicPortrait() {
                 />
                 {/* Bright Foreground Fireflies */}
                 <Sparkles
-                    color="#6ee7b7"
+                    color="#38bdf8"
                     count={50}
                     scale={8}
                     size={6}

@@ -22,11 +22,11 @@ export function AIBackground() {
         const CONNECTION_DISTANCE = 90; // Max distance to connect
         const ROTATION_SPEED_BASE = 0.002;
 
-        // Aesthetic Colors (Professional Mint/Olive)
-        // Green is 120-160. Teal/Cyan is 170+. Lime is 80-100.
-        // We'll target a range of 140 (Green) to 165 (Mint/Teal)
-        const HUE_BASE = 145;
-        const HUE_RANGE = 25; // Variation
+        // Aesthetic Colors (Professional Deep Blue/Cyan)
+        // Blue is 210-240. Cyan is 180-200.
+        // We'll target a range of 200 (Cyan) to 230 (Blue)
+        const HUE_BASE = 210;
+        const HUE_RANGE = 30; // Variation
 
         interface Point3D {
             x: number;
