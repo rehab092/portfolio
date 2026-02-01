@@ -12,7 +12,7 @@ import { WelcomeScreen } from '@/components/welcome-screen';
 
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(false); // Set to true to enable AI Robot Welcome
 
   if (showWelcome) {
     return <WelcomeScreen onComplete={() => setShowWelcome(false)} />;

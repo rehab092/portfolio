@@ -4,20 +4,6 @@ import { useState } from 'react';
 
 const experiences = [
   {
-    title: 'Intern - Web Development',
-    company: 'Prodigy InfoTech',
-    period: 'Current',
-    location: 'Remote',
-    type: 'Internship',
-    description: 'Web development and UI/UX implementation',
-    highlights: [
-      'Developing responsive web applications',
-      'Implementing modern frontend technologies',
-      'Collaborating on full-stack projects',
-    ],
-    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Responsive Design'],
-  },
-  {
     title: 'Frontend Developer & Web Design Intern',
     company: 'Software Productivity Strategists (SPS)',
     period: 'Aug 2025 - Sep 2025',
@@ -74,6 +60,20 @@ const experiences = [
     ],
     skills: ['Python', 'Machine Learning', 'Data Science', 'Model Training', 'TensorFlow'],
   },
+  {
+    title: 'Intern - Web Development',
+    company: 'Prodigy InfoTech',
+    period: '2023',
+    location: 'Remote',
+    type: 'Internship',
+    description: 'Web development and UI/UX implementation',
+    highlights: [
+      'Developing responsive web applications',
+      'Implementing modern frontend technologies',
+      'Collaborating on full-stack projects',
+    ],
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Responsive Design'],
+  },
 ];
 
 export function CVExperience() {
@@ -124,11 +124,10 @@ function ExperienceCard({
       onClick={onClick}
     >
       <div
-        className={`glass-effect holographic p-6 rounded-xl transition-all duration-300 ${
-          isActive
-            ? 'neon-border shadow-lg shadow-primary/30 bg-gradient-to-br from-primary/10 to-accent/5'
-            : 'border border-primary/20 hover:border-primary/50 hover:bg-primary/5'
-        }`}
+        className={`glass-effect holographic p-6 rounded-xl transition-all duration-300 ${isActive
+          ? 'neon-border shadow-lg shadow-primary/30 bg-gradient-to-br from-primary/10 to-accent/5'
+          : 'border border-primary/20 hover:border-primary/50 hover:bg-primary/5'
+          }`}
       >
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
           <div>
